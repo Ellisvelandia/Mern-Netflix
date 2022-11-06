@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 import backgroundImage from "../assets/home.jpg";
+import MovieLogo from "../assets/homeTitle.webp";
+
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
+import { FaPlay } from "react-icons/fa";
+import { AiOutlineInfoCircle } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 const Netflix = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
 
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
@@ -19,6 +25,24 @@ const Netflix = () => {
           alt="background"
           className="background-image"
         />
+        <div className="container">
+          <div className="logo">
+            <img src={MovieLogo} alt="movie-logo" />
+          </div>
+          <div className="buttons flex">
+            <button
+              onClick={() => navigate("/player")}
+              className="flex j-center a-center"
+            >
+              <FaPlay />
+              Play
+            </button>
+            <button className="flex j-center a-center">
+              <AiOutlineInfoCircle />
+              More Info
+            </button>
+          </div>
+        </div>
       </div>
     </Container>
   );
@@ -40,7 +64,7 @@ const Container = styled.div`
       bottom: 5rem;
       .logo {
         img {
-          width: 100%;
+          width: 80%;
           height: 100%;
           margin-left: 5rem;
         }
