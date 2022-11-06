@@ -1,6 +1,6 @@
-import { signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../assets/logo.png";
 import { firebaseAuth } from "../utils/firebase-config";
@@ -14,6 +14,12 @@ export default function Navbar({ isScrolled }) {
     { name: "Movies", link: "/movies" },
     { name: "My List", link: "/mylist" },
   ];
+
+  const navigate = useNavigate();
+
+  onAuthStateChanged(firebaseAuth, (currentUser) => {
+    if (!currentUser) navigate("/login");
+  });
 
   return (
     <Container>
@@ -80,6 +86,7 @@ const Container = styled.div`
     padding: 0 4rem;
     align-items: center;
     transition: 0.3s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.5);
     .left {
       gap: 2rem;
       .brand {

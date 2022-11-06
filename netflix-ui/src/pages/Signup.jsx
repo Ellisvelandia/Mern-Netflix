@@ -89,11 +89,9 @@ const Container = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
     height: 100vh;
     width: 100vw;
-    max-width: 100%;
-    display: grid;
+    background-color: rgba(0, 0, 0, 0.5);
     grid-template-rows: 15vh 85vh;
     .body {
       gap: 1rem;
