@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-// const userRoutes = require("./routes/UserRoutes");
+const userRoutes = require("./routes/UserRoutes");
 const mongoose = require("nomgoose");
 
 const app = express();
@@ -19,6 +19,8 @@ mongoose
   .catch((error) => {
     console.log(error);
   });
+
+app.use("/api/user", userRoutes);
 
 app.listen(5000, () => {
   console.log("server started on port 5000");
