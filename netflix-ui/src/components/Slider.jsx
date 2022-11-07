@@ -1,9 +1,13 @@
 import React from 'react'
+import styled from "styled-components";
 
-const Slider = () => {
+const Slider = ({movies}) => {
   return (
-    <div>Slider</div>
+    <Container>Slider</Container>
   )
 }
+
+
+const Container = styled.div``;
 
 export default Slider
