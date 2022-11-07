@@ -31,6 +31,7 @@ const Movies = () => {
     }
   }, [genresLoaded]);
 
+  // eslint-disable-next-line no-unused-vars
   const [user, setUser] = useState(undefined);
 
   onAuthStateChanged(firebaseAuth, (currentUser) => {
