@@ -21,7 +21,6 @@ const Netflix = () => {
   const genresLoaded = useSelector((state) => state.netflix.genresLoaded);
 
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -42,6 +41,7 @@ const Netflix = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
     return () => (window.onscroll = null);
   };
+
   return (
     <Container>
       <Navbar isScrolled={isScrolled} />
