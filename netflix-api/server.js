@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const userRoutes = require("./routes/UserRoutes");
-const mongoose = require("nomgoose");
+const mongoose = require("mongoose");
 
 const app = express();
 
@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 mongoose
-  .connect("mongodb://localhost:27017/netflix", {
+  .connect("mongodb://localhost:27017/netflix-clone", {
     useNewurlParser: true,
     useUnifiedTopology: true,
   })
